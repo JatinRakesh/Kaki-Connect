@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "sqlite",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1788628484935,
+      "tag": "0000_loose_swordsman",
+      "breakpoints": true
+    }
+  ]
 }
