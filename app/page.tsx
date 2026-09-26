@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import InterestGroups from "./components/InterestGroups";
 
 type Venue = {
   id: string;
@@ -157,6 +158,7 @@ export default function Home() {
 
       {selectedVenue && <div className="modal-backdrop" role="presentation" onMouseDown={() => setSelectedVenue(null)}><section className="booking-panel" role="dialog" aria-modal="true" aria-labelledby="booking-title" onMouseDown={(event) => event.stopPropagation()}><button className="close" onClick={() => setSelectedVenue(null)} aria-label="Close booking panel">×</button><p className="eyebrow">{selectedVenue.location}</p><h2 id="booking-title">{selectedVenue.name}</h2><p className="booking-intro">Choose one facility, then send a quick booking request.</p><div className="facility-list">{selectedVenue.facilities.map((facility) => <button type="button" className={selectedFacility === facility ? "selected" : ""} aria-pressed={selectedFacility === facility} onClick={() => setSelectedFacility(facility)} key={facility}>{selectedFacility === facility ? "✓ " : "+ "}{facility}</button>)}</div>{selectedFacility && <p className="selected-facility">Selected: <b>{selectedFacility}</b></p>}<form onSubmit={submitBooking}><label>Your name<input required name="name" placeholder="Your name" /></label><label>Email address<input required type="email" name="email" placeholder="you@example.com" /></label><label>What are you planning?<textarea required name="details" placeholder="e.g. A Saturday dance class for 20 people" rows={3} /></label><button className="primary" type="submit">Send booking request <span>→</span></button></form></section></div>}
       {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice("")} aria-label="Dismiss message">×</button></div>}
+    <InterestGroups />
     </main>
   );
 }
